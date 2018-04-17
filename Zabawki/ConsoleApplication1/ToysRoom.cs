@@ -109,43 +109,72 @@ namespace ConsoleApplication1
         {
             list.Add(toy);
             OnNumberChanged();
-
-            foreach(Toy atoy in list)
-            { 
-                sum += atoy.GetActualValue;
-                if(limit < sum)
+            try
+            {
+                if (list.Count > 1)
                 {
-                    OnLimitChange();
+                    foreach (Toy atoy in list)
+                    {
+                        sum += atoy.GetActualValue;
+                        if (limit < sum)
+                        {
+                            OnLimitChange();
+                        }
+                    }
                 }
+            }
+            catch (System.InvalidOperationException ex) {
+               
+            }
+        }
+
+        public void deleteLastToy()
+        {
+            if (list.Count > 1)
+            {
+                list.RemoveAt(list.Count - 1);
+                Console.WriteLine("Last Toy removed");
+                Console.ReadLine();
+            }else {
+                Console.WriteLine("No toys to remove");
             }
         }
 
         public void changeSpeedToAll(int speed)
         {
-            foreach(Toy toy in list)
+            if (list.Count > 1)
             {
-                toy.Speed += speed;
+                foreach (Toy toy in list)
+                {
+                    toy.Speed += speed;
+                }
+                OnValueSpeedChanged();
             }
-            OnValueSpeedChanged();
         }
 
         public void changeDepthToAll(int depth)
         {
-            foreach (Toy toy in list)
+            if (list.Count > 1)
             {
-                toy.Depth += depth;
+                foreach (Toy toy in list)
+                {
+                    toy.Depth += depth;
+                }
+                OnValueDepthChanged();
             }
-            OnValueDepthChanged();
         }
 
 
         public void changeHeightToAll(int height)
         {
-            foreach (Toy toy in list)
+            if (list.Count > 1)
             {
-                toy.Height += height;
+                foreach (Toy toy in list)
+                {
+                    toy.Height += height;
+                }
+                OnValueHeightChanged();
             }
-            OnValueHeightChanged();
         }
 
         public void showAllInfo()
