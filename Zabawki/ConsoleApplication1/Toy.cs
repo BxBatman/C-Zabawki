@@ -58,24 +58,18 @@ namespace ConsoleApplication1
 
     class Toy
     {
-        private int speed;
-        private int height;
-        private int depth;
+        
         private double age;
 
         Value basicValue;
 
-        public int Speed { get => speed; set => speed = value; }
-        public int Height { get => height; set => height = value; }
-        public int Depth { get => depth; set => depth = value; }
+        
         public double Age { get => age; set => age = value; }
 
 
-        public Toy(int speed,int height,int depth,double age,Value basicValue)
+        public Toy(double age,Value basicValue)
         {
-            this.speed = speed;
-            this.height = height;
-            this.depth = depth;
+            
             this.age = age;
             this.basicValue = basicValue;
         }

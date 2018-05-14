@@ -5,14 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ConsoleApplication1
-
-
-
-
-
 {
 
-    
     class App
     {
         
@@ -26,8 +20,13 @@ namespace ConsoleApplication1
             System.Threading.Thread thread3 = new System.Threading.Thread(test.test3);
 
             thread1.Start();
+            
             thread2.Start();
+            
             thread3.Start();
+
+            
+
 
             
             
