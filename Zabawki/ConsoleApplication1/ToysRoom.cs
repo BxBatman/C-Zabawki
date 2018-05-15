@@ -12,11 +12,21 @@ namespace ConsoleApplication1
         public List<Toy> list = new List<Toy>();
         public delegate void LimitToyHandler();
         public event LimitToyHandler limitReached;
+
+        public delegate void AddToyHandler();
+        public event AddToyHandler newToyAdded;
+
+
+
+        public void NewToyAddedInfo() {
+            Console.WriteLine("New toy added!");
+            Console.ReadLine();
+        }
+
         public void LimitReachedInfo()
         {
-            
-                Console.WriteLine("Limit  reached!");
-                Console.ReadLine();
+            Console.WriteLine("Limit  reached!");
+            Console.ReadLine();
             
         }
 
@@ -30,6 +40,16 @@ namespace ConsoleApplication1
                 limitReached();
             }
         }
+
+
+        public void NewToyAddedHandler()
+        {
+            this.newToyAdded += new AddToyHandler(NewToyAddedInfo);
+            if(newToyAdded != null)
+            {
+                newToyAdded();
+            }
+        }
         
         
         private double limit;
@@ -41,6 +61,7 @@ namespace ConsoleApplication1
         public void add(Toy toy)
         {
             list.Add(toy);
+            NewToyAddedHandler();
             
             try
             {

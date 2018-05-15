@@ -15,10 +15,15 @@ namespace ConsoleApplication1
         {
             while (true)
             {
-                toysRoom.Limit = 400;
+                toysRoom.Limit = 1200;
                 Value toy1Value = new Value(45.5, 25);
                 Toy toy1 = new Car(30,2.5, toy1Value);
+
+                Value toy2Value = new Value(75, 25);
+                Toy toy2 = new Car(46,4.5, toy2Value);
+
                 toysRoom.add(toy1);
+                toysRoom.add(toy2);
                 toysRoom.showAllInfo();
                 toysRoom.changeDepthToAll(3);
                 toysRoom.deleteLastToy();
@@ -51,6 +56,7 @@ namespace ConsoleApplication1
                 Value toy4Value = new Value(80.5, 120);
                 Toy toy4 = new Box(3,5,4, toy3Value);
                 toysRoom.add(toy4);
+                toysRoom.showAllInfo();
                 toysRoom.changeSpeedToAll(2);
                 
             }
