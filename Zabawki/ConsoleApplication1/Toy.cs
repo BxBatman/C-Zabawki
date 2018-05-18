@@ -5,9 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ConsoleApplication1
+
 {
+    
+    
+
     struct Value
     {
+
+        public delegate void PriceToyHandler();
+        public event PriceToyHandler priceReached;
+
+
         private double price;
         private double sentimentalValue;
 
@@ -16,6 +25,7 @@ namespace ConsoleApplication1
         {
             this.price = price;
             this.sentimentalValue = sentimentalValue;
+            priceReached = null;
         }
 
         public double Price {
@@ -25,6 +35,7 @@ namespace ConsoleApplication1
             set {
                 if(value > 0)
                 {
+                    priceReached();
                     this.price = value;
                 }else
                 {
@@ -60,6 +71,8 @@ namespace ConsoleApplication1
     {
         
         private double age;
+       
+
 
         Value basicValue;
 
@@ -73,6 +86,8 @@ namespace ConsoleApplication1
             this.age = age;
             this.basicValue = basicValue;
         }
+
+
 
         public double GetActualValue
         {

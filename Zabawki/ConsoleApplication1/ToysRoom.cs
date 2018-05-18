@@ -16,42 +16,6 @@ namespace ConsoleApplication1
         public delegate void AddToyHandler();
         public event AddToyHandler newToyAdded;
 
-
-
-        public void NewToyAddedInfo() {
-            Console.WriteLine("New toy added!");
-            Console.ReadLine();
-        }
-
-        public void LimitReachedInfo()
-        {
-            Console.WriteLine("Limit  reached!");
-            Console.ReadLine();
-            
-        }
-
-
-        public void LimitReachedHandler()
-        {
-            this.limitReached += new LimitToyHandler(LimitReachedInfo);
-
-            if(limitReached != null)
-            {
-                limitReached();
-            }
-        }
-
-
-        public void NewToyAddedHandler()
-        {
-            this.newToyAdded += new AddToyHandler(NewToyAddedInfo);
-            if(newToyAdded != null)
-            {
-                newToyAdded();
-            }
-        }
-        
-        
         private double limit;
         private double sum = 0;
 
@@ -61,7 +25,7 @@ namespace ConsoleApplication1
         public void add(Toy toy)
         {
             list.Add(toy);
-            NewToyAddedHandler();
+            newToyAdded();
             
             try
             {
@@ -70,10 +34,11 @@ namespace ConsoleApplication1
                     foreach (Toy atoy in list)
                     {
                         sum += atoy.GetActualValue;
-                        if (limit < sum)
-                        {
-                            LimitReachedHandler();
-                        }
+
+                    }
+                    if (limit < sum)
+                    {
+                        limitReached();
                     }
                 }
             }
