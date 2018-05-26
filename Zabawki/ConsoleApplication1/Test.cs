@@ -40,7 +40,7 @@ namespace ConsoleApplication1
             toy1Value.priceReached += PriceReachedInfo;
             toysRoom.newToyAdded += NewToyAddedInfo;
             toysRoom.limitReached += LimitReachedInfo;
-            toysRoom.Limit = 50000;
+            toysRoom.Limit = 300;
             toy1Value.Price = 120;
             toy2Value.Price = 300;
 
@@ -52,7 +52,7 @@ namespace ConsoleApplication1
                 toysRoom.add(toy2);
                 toysRoom.showAllInfo();
                 toysRoom.changeDepthToAll(3);
-                toysRoom.deleteLastToy();
+                
                 
             }
         }
@@ -61,6 +61,7 @@ namespace ConsoleApplication1
         {
             toysRoom.newToyAdded += NewToyAddedInfo;
             toysRoom.limitReached += LimitReachedInfo;
+            toysRoom.Limit = 300;
 
             Value toy2Value = new Value(34.5, 50);
 
@@ -70,9 +71,8 @@ namespace ConsoleApplication1
                 
                 toysRoom.add(toy2);
                 toysRoom.changeDepthToAll(7);
-                toysRoom.deleteLastToy();
-                toysRoom.deleteLastToy();
-                ;
+                
+                
                 toysRoom.showAllInfo();
                
                 
@@ -84,6 +84,7 @@ namespace ConsoleApplication1
         {
             toysRoom.newToyAdded += NewToyAddedInfo;
             toysRoom.limitReached += LimitReachedInfo;
+            toysRoom.Limit = 300;
             Value toy4Value = new Value(80.5, 120);
             Toy toy4 = new Box(3, 5, 4, toy4Value);
 
